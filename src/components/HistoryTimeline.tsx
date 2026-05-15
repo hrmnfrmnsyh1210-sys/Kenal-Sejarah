@@ -3,61 +3,73 @@ import { TIMELINE_DATA } from "../data";
 
 export default function HistoryTimeline() {
   return (
-    <section id="sejarah" className="py-16 md:py-32 px-6 md:px-16 bg-[#faf8f5]">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-16 md:mb-24 md:flex items-end justify-between border-b border-stone-200 pb-8">
+    <section id="sejarah" className="py-20 md:py-32 px-6 md:px-16 bg-sky-300 relative overflow-hidden border-t-8 border-stone-900 border-b-[12px]">
+      <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #0f172a 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="mb-16 md:mb-24 flex flex-col md:flex-row items-center md:items-end justify-between bg-white border-4 border-stone-900 p-8 rounded-3xl shadow-[8px_8px_0px_0px_#1c1917]">
           <div>
-            <h2 className="text-4xl md:text-6xl font-serif text-stone-900 tracking-tight">Kronik <span className="italic text-amber-600 font-medium">Waktu</span></h2>
+            <h2 className="text-5xl md:text-7xl font-sans font-black text-stone-900 tracking-tight flex items-center gap-4">
+              Mesin <span className="inline-block bg-amber-400 px-4 py-2 border-4 border-stone-900 -rotate-2 shadow-[4px_4px_0_0_#000]">Waktu</span>
+            </h2>
           </div>
-          <p className="font-sans text-sm uppercase tracking-[0.2em] text-emerald-800 mt-4 md:mt-0 font-bold">Babad Sejarah</p>
+          <motion.div 
+             animate={{ rotate: [0, 5, -5, 0] }} 
+             transition={{ duration: 2, repeat: Infinity }}
+             className="font-sans text-sm md:text-lg uppercase mt-6 md:mt-0 font-bold bg-fuchsia-500 text-white px-6 py-3 rounded-full border-4 border-stone-900 shadow-[4px_4px_0px_0px_#1c1917]"
+          >
+            Pilih Era Favoritmu!
+          </motion.div>
         </div>
 
-        <div className="space-y-24 md:space-y-32">
+        <div className="space-y-16 md:space-y-24">
           {TIMELINE_DATA.map((item, index) => {
             const isEven = index % 2 === 0;
-            // Alternating colorful elements
-            const numColors = ['text-red-600/10', 'text-amber-500/15', 'text-emerald-700/10', 'text-indigo-600/10', 'text-rose-600/10'];
-            const pillColors = ['bg-red-100 text-red-800', 'bg-amber-100 text-amber-800', 'bg-emerald-100 text-emerald-800', 'bg-indigo-100 text-indigo-800', 'bg-rose-100 text-rose-800'];
-            const numColor = numColors[index % numColors.length];
-            const pillColor = pillColors[index % pillColors.length];
+            // Neobrutalist vibrant colors
+            const bgColors = ['bg-rose-400', 'bg-emerald-400', 'bg-violet-400', 'bg-amber-400', 'bg-cyan-400'];
+            const cardBgColor = bgColors[index % bgColors.length];
             
             return (
               <motion.div 
                 key={item.id}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className={`flex flex-col gap-8 md:gap-16 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className={`relative flex flex-col gap-8 md:gap-12 md:items-center ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
               >
                 {/* Visual */}
-                <div className="w-full md:w-1/2 relative group mt-8 md:mt-0">
-                  <div className={`aspect-[4/3] overflow-hidden rounded-3xl border-4 ${isEven ? 'border-amber-100' : 'border-stone-100'} shadow-lg`}>
-                    <motion.img 
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
-                      src={item.image} 
-                      alt={item.title}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover"
-                    />
+                <div className="w-full md:w-1/2 relative group">
+                  <div className={`aspect-[4/3] overflow-hidden rounded-[2rem] border-4 border-stone-900 shadow-[12px_12px_0px_0px_rgba(28,25,23,1)] bg-white p-2 md:p-3`}>
+                    <div className="w-full h-full rounded-[1.5rem] overflow-hidden relative border-2 border-stone-900">
+                      <motion.img 
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.5 }}
+                        src={item.image} 
+                        alt={item.title}
+                        referrerPolicy="no-referrer"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                   </div>
-                  {/* Floating Number */}
-                  <div className={`absolute -top-10 md:top-[-20px] ${isEven ? 'left-0 md:left-[-30px]' : 'right-0 md:right-[-30px]'} font-serif text-[100px] md:text-[140px] font-bold leading-none ${numColor} pointer-events-none select-none drop-shadow-sm`}>
-                    0{index + 1}
-                  </div>
+                  {/* Floating Number Badge */}
+                  <motion.div 
+                    whileHover={{ scale: 1.1, rotate: 10 }}
+                    className={`absolute -top-6 md:-top-10 ${isEven ? 'left-4 md:-left-8' : 'right-4 md:-right-8'} w-20 h-20 md:w-28 md:h-28 bg-white border-4 border-stone-900 rounded-full flex items-center justify-center font-black text-4xl md:text-6xl text-stone-900 shadow-[6px_6px_0px_0px_#1c1917] z-20`}
+                  >
+                    {index + 1}
+                  </motion.div>
                 </div>
 
                 {/* Content */}
-                <div className="w-full md:w-1/2 flex flex-col justify-center mt-2 md:mt-0">
-                  <div className="space-y-4 md:space-y-6 max-w-lg">
-                    <p className={`font-sans text-[10px] uppercase tracking-[0.3em] font-bold inline-block px-3 py-1 rounded-full w-max ${pillColor}`}>
+                <div className="w-full md:w-1/2 relative">
+                  <div className={`${cardBgColor} p-6 md:p-10 rounded-[2rem] border-4 border-stone-900 shadow-[12px_12px_0px_0px_rgba(28,25,23,1)] transform hover:-translate-y-2 transition-transform duration-300`}>
+                    <div className="inline-block px-4 py-2 bg-white border-2 border-stone-900 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest text-stone-900 mb-6 shadow-[4px_4px_0_0_#1c1917]">
                       {item.period}
-                    </p>
-                    <h3 className="text-3xl md:text-5xl font-serif text-stone-900 leading-tight">
+                    </div>
+                    <h3 className="text-3xl md:text-4xl font-black text-stone-900 leading-tight mb-4 tracking-tight drop-shadow-sm font-sans">
                       {item.title}
                     </h3>
-                    <p className="font-serif text-stone-600 leading-relaxed text-sm md:text-base">
+                    <p className="font-medium text-stone-900 leading-relaxed text-base md:text-lg bg-white/50 p-4 rounded-xl border-2 border-stone-900">
                       {item.description}
                     </p>
                   </div>

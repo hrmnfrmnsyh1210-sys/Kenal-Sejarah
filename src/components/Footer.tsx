@@ -1,19 +1,23 @@
 export default function Footer() {
   return (
-    <footer className="py-12 px-6 md:px-16 border-t-[8px] border-red-700 bg-stone-950">
+    <footer className="py-12 px-6 md:px-16 border-t-8 border-stone-900 bg-amber-400">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-left">
         <div>
-          <h2 className="font-serif text-2xl font-semibold text-stone-50 tracking-tight">Khatulistiwa<span className="text-amber-500 italic">.</span></h2>
-          <p className="font-sans text-[10px] text-emerald-500 mt-2 uppercase tracking-[0.3em] font-bold">Sejarah Kalimantan Barat</p>
+          <h2 className="font-sans text-3xl font-black text-stone-900 tracking-tight flex items-center justify-center md:justify-start gap-2">
+            Khatulistiwa
+            <div className="w-4 h-4 bg-fuchsia-500 rounded-full border-2 border-stone-900 animate-bounce"></div>
+          </h2>
+          <p className="font-sans text-xs text-stone-800 mt-2 uppercase tracking-[0.2em] font-bold">Jelajah Nusantara - Seri Kalbar</p>
         </div>
         
-        <div className="flex gap-8 font-sans text-[10px] uppercase tracking-widest text-stone-400 font-medium">
-          <a href="#" className="hover:text-amber-400 transition-colors">Beranda</a>
-          <a href="#sejarah" className="hover:text-amber-400 transition-colors">Sejarah</a>
+        <div className="flex gap-6 font-sans text-sm uppercase tracking-widest text-stone-900 font-bold">
+          <a href="#" className="hover:text-amber-100 hover:bg-stone-900 px-4 py-2 rounded-full border-2 border-transparent hover:border-stone-900 transition-all">Beranda</a>
+          <a href="#sejarah" className="hover:text-amber-100 hover:bg-stone-900 px-4 py-2 rounded-full border-2 border-transparent hover:border-stone-900 transition-all">Sejarah</a>
+          <a href="#fun-games" className="hover:text-amber-100 hover:bg-stone-900 px-4 py-2 rounded-full border-2 border-transparent hover:border-stone-900 transition-all">Kuis</a>
         </div>
         
-        <p className="font-sans text-[10px] text-stone-500 font-light tracking-widest uppercase">
-          &copy; {new Date().getFullYear()} Edukasi Sejarah Kalbar
+        <p className="font-sans text-xs text-stone-800 font-bold tracking-widest uppercase">
+          &copy; {new Date().getFullYear()} Dibuat dengan ✨
         </p>
       </div>
     </footer>

@@ -43,18 +43,21 @@ export const CULTURE_DATA = [
     id: "dayak",
     name: "Suku Dayak",
     desc: "Masyarakat komunal dengan tradisi agraris yang kuat. Dikenal dengan Rumah Betang (Rumah Panjang) yang mengedepankan asas kekeluargaan, serta seni ukir dan tenun ikat yang memukau.",
-    img: "/dayak.jpeg"
+    img: "/dayak.jpeg",
+    link: "https://www.google.com/search?tbm=isch&q=Kebudayaan+Suku+Dayak+Kalimantan+Barat"
   },
   {
     id: "melayu",
     name: "Suku Melayu",
     desc: "Umumnya mendiami daerah pesisir dan pinggiran sungai. Identik dengan kebudayaan Islam, kesenian Tanjidor, pantun, serta kuliner khas yang kaya rempah.",
-    img: "/melayu.webp"
+    img: "/melayu.webp",
+    link: "https://www.google.com/search?tbm=isch&q=Kebudayaan+Melayu+Kalimantan+Barat"
   },
   {
     id: "tionghoa",
     name: "Etnis Tionghoa",
     desc: "Kehadiran etnis Tionghoa berakar dari sejarah penambangan emas. Budaya mereka menyatu lewat perayaan Cap Go Meh yang spektakuler, khususnya di Singkawang, serta alkulturasi kuliner lokal.",
-    img: "/tionghoa.webp"
+    img: "/tionghoa.webp",
+    link: "https://www.google.com/search?tbm=isch&q=Cap+Go+Meh+Singkawang+Kalimantan+Barat"
   }
 ];
