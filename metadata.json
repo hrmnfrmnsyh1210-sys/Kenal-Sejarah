@@ -1,0 +1,8 @@
+{
+  "name": "Sejarah Kalimantan Barat",
+  "description": "Aplikasi edukasi yang menjelaskan sejarah, budaya, dan peninggalan Kalimantan Barat dengan tampilan yang estetis dan menarik.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
